@@ -22,6 +22,7 @@ const img = document.querySelector(".projects__image");
 const city = document.querySelectorAll(".projects__data")[0];
 const square = document.querySelectorAll(".projects__data")[1];
 const time = document.querySelectorAll(".projects__data")[2];
+const items = document.querySelectorAll(".projects__item a");
 
 let currentIndex = 0;
 let entitiesLength = entities.length;
@@ -33,9 +34,16 @@ const setEntity = (index) => {
 	img.style.backgroundImage = `url(${entities[index].img})`;
 
 	items.forEach((item) => {
-		item.style.color = "#5a5a5a";
-		items[index].style.color = " #e3b873";
+		item.classList.remove("item-active");
 	});
+	items[index].classList.add("item-active");
+};
+
+const activeDot = (dots, dot) => {
+	dots.forEach((dot) => {
+		dot.classList.remove("dot-active");
+	});
+	dot.classList.add("dot-active");
 };
 
 // clicking on arrows
@@ -49,10 +57,7 @@ prev.addEventListener("click", () => {
 		currentIndex -= 1;
 	}
 	setEntity(currentIndex);
-	dots.forEach((dot, j) => {
-		dots[j].classList.remove("dot-active");
-	});
-	dots[currentIndex].classList.add("dot-active");
+	activeDot(dots, dots[currentIndex]);
 });
 
 next.addEventListener("click", () => {
@@ -62,26 +67,16 @@ next.addEventListener("click", () => {
 		currentIndex += 1;
 	}
 	setEntity(currentIndex);
-	dots.forEach((dot, j) => {
-		dots[j].classList.remove("dot-active");
-	});
-	dots[currentIndex].classList.add("dot-active");
+	activeDot(dots, dots[currentIndex]);
 });
 
 // Clicking on links
-const items = document.querySelectorAll(".projects__item a");
 
 items.forEach((item, i) => {
 	item.addEventListener("click", () => {
-		items.forEach((item, j) => {
-			items[j].style.color = "#5a5a5a";
-		});
 		currentIndex = i;
 		setEntity(currentIndex);
-		dots.forEach((dot, j) => {
-			dots[j].classList.remove("dot-active");
-		});
-		dots[currentIndex].classList.add("dot-active");
+		activeDot(dots, dots[currentIndex]);
 	});
 });
 
@@ -90,10 +85,7 @@ const dots = document.querySelectorAll(".projects__dot");
 
 dots.forEach((dot, i) => {
 	dot.addEventListener("click", () => {
-		dots.forEach((dot, j) => {
-			dots[j].classList.remove("dot-active");
-		});
-		dot.classList.add("dot-active");
+		activeDot(dots, dot);
 		currentIndex = i;
 		setEntity(currentIndex);
 	});

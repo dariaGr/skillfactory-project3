@@ -156,7 +156,7 @@ h6 {
 }
 
 .title {
-  font-family: Yeseva One;
+  font-family: "Yeseva One";
   font-size: 27px;
   line-height: 37px;
   letter-spacing: -0.07em;
@@ -199,7 +199,7 @@ h6 {
   transition: 0.2s;
 }
 
-.projects__item:first-child a{
+a.item-active{
    color: #e3b873;
 }
 
@@ -247,7 +247,7 @@ h6 {
      height: 36px;
      background-color: #E3B873;
      border-radius: 50%;
-     background-image: url("../img/icons/arrow-l.svg");
+     background-image: url("../img/arrow-l.svg");
      background-repeat: no-repeat;
      background-position: 45% 50%;
      position: absolute;
@@ -261,7 +261,7 @@ h6 {
      height: 36px;
      background-color: #E3B873;
      border-radius: 50%;
-     background-image: url("../img/icons/arrow-r.svg");
+     background-image: url("../img/arrow-r.svg");
      background-repeat: no-repeat;
      background-position: 55% 50%;
      position: absolute;
